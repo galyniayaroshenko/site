@@ -1,0 +1,40 @@
+<?php defined('ISHOP') or die('Access denied'); ?>
+<div class="content">
+	<h2>Список користувачів</h2>
+<?php
+if(isset($_SESSION['answer'])){
+    echo $_SESSION['answer'];
+    unset($_SESSION['answer']);
+}
+?>
+<a href="?view=add_user"><img class="add_some" src="<?=ADMIN_TEMPLATE?>images/add_user.jpg" alt="добавить новость" /></a>
+
+<table class="tabl" cellspacing="1">
+    <tr>
+        <th class="number">№</th>
+        <th class="str_name">Імя</th>
+        <th class="str_name">Логін</th>
+        <th class="str_name">mail</th>
+        <th class="str_sort">Роль</th>
+        <th class="str_action">Дія</th>
+    </tr>
+<?php $i = 1; ?>
+<?php foreach($users as $item): ?>
+    <tr>
+    	<td><?=$i?></td>
+    	<td class="name_page"><?=htmlspecialchars($item['name'])?></td>
+        <td class="name_page"><?=htmlspecialchars($item['login'])?></td>
+        <td class="name_page"><?=htmlspecialchars($item['email'])?></td>
+    	<td><?=htmlspecialchars($item['name_role'])?></td>
+    	<td><a href="#" class="edit">змінити</a>&nbsp; | &nbsp;<a href="#" class="del">видалити</a></td>
+    </tr>
+<?php $i++; ?>
+<?php endforeach; ?>
+</table>
+<?php if($pages_count > 1) pagination($page, $pages_count); ?>
+<a href="?view=add_user"><img class="add_some" src="<?=ADMIN_TEMPLATE?>images/add_user.jpg" alt="добавити новину" /></a>
+	</div> <!-- .content -->
+	</div> <!-- .content-main -->
+</div> <!-- .karkas -->
+</body>
+</html>

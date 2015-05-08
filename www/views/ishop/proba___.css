@@ -1,0 +1,1112 @@
+*{
+	margin:0; padding:0;
+}
+img{
+	border:none;
+}
+ul li {
+    list-style: outside;
+}
+body{
+	background:#ffffff;
+}
+a{
+    color:#2B8ABA;
+}	
+a:hover{
+    text-decoration: none;
+}
+.main{
+	background:#fff;
+    /*min-width:980px;
+    max-width:1200px;*/
+    width: 1200px;
+    margin:0 auto;/*ширини. mar цен*/
+    margin-top: 20px;
+}
+.header{
+		/*overflow:hidden;*/
+        position: relative;
+        float:left;
+        width:100%;
+        background:#fff;
+        
+}
+.head-logo{
+    /*width: 465px;*/
+    	float:left; 
+        width:485px;
+        /*margin-left:-100%;*/
+        padding-left: 70px;
+}
+.logo{
+    float:left;
+    /*width: 465px;*/
+    
+}
+.head-logo p{
+    margin: 0px 0 10px 100px;
+    padding: 5px 30px 10px 10px;
+    float:left;
+    border-right: 1px solid #d7d7d7;
+    font: 14px Century Gothic;
+}
+.head-logo p:last-child{
+    border-right:none;
+    margin-left: 20px;
+    margin-right: 30px;
+    position: relative;
+}
+.search{
+    float:left;
+    width: 370px;
+    /*margin:0 305px 0 545px;*/
+}
+
+.search-head{
+            list-style:none;
+            /*background:url(images/bg-search.jpg) no-repeat top;*/
+            width:241px;
+            height:23px; 
+            margin: 5px 0px 11px 40px;
+            font: 14px Century Gothic;
+            
+            
+}
+#quickquery{
+				border:none;
+                font:14px Century Gothic ; 
+                padding: 0 0px 0 0px;
+                width:241px;
+                height:22px;
+                box-shadow: inset 2px 2px 10px 3px #e3e3e3;
+			}
+            
+.serch-btn{
+                position: absolute;
+                /*margin: -22px 0px 0 0;*/
+				padding:0px 30px 0px 220px;
+				/*float:left;*/
+                /*box-shadow: inset 1px 1px 10px 3px #e2e2e2;*/
+			}
+.search p{
+    font: 16px Century Gothic;
+    margin-left: 105px;
+    margin-top: 15px;
+     
+}
+.korzuna{
+    /*float:right;
+    width: 300px;*/
+    	float:right;
+        width:270px;    
+        /*margin-top:-95px;
+        margin-left:885px;
+        position: absolute;*/
+}
+.korzuna p{
+    /*margin:0 0px 0px 85px;
+    padding: 0 0 85px 0;*/
+    position: absolute;
+    display: block;
+    margin:-70px 0px -85px 85px;
+    font: 14px Century Gothic;
+}
+.korzuna p span{
+     font: 16px Century Gothic;
+}
+
+.menu{
+		background:#f4f3f3;
+        display:table-row;
+        list-style:none;
+        margin: 100px 0 0 -100px;
+	}
+.menu li{
+			display:table-cell;
+            width:auto;
+            text-align:center;
+            height:50px; 
+}
+.menu li:hover{
+			background:#e22339;
+		}
+.menu li a:hover{
+            color:#fff;
+		}
+  
+.menu li a{
+			display:block;
+            width:1000px;
+            height:50px;
+            vertical-align:middle;
+            display:table-cell;
+            font:18px Century Gothic;
+            color:#434342;
+            text-decoration:none;
+		}
+ hr {
+    border: none;
+    background-color: #e1223c; 
+    color: #e1223c;
+    height: 4px;
+   }
+   
+   
+/*  Крошка */
+.kroshka{
+	font:12px Century Gothic;
+    color:#555555;
+    background: url(images/do_kroshku.jpg) repeat-x;
+    height: 49px;
+}
+	.kroshka span{
+		color:#e1223c;
+	}
+	.kroshka a{
+		color:#555;
+        line-height: 3.5em;
+        margin-left: 10px;
+        
+	}
+	.kroshka a:hover{
+		text-decoration:none;
+	}
+    
+    /*наповнення*/
+    		
+	   #contentwrapper{
+		float:left;
+        width:100%;
+        background:#fff;
+        height: 1760px;
+	}
+		#content{
+			margin:0 225px 0 260px;
+            width: 715px;
+            
+		}
+		
+    
+    
+    	.catalog-index{
+		overflow:hidden;
+	}
+		.catalog-index h1{
+			text-align:center;
+            margin:15px 0 20px 0;
+            color:#cc3139;
+            font:bold 36px Century Gothic;
+		}
+		.product-index{
+			text-align:center;
+            width:50%;
+            float:left;
+            margin:0 0 60px 0;
+		}
+			.product-index h2{
+				font:14px Century Gothic;
+                color:#423c37;
+                margin:0 0 10px 0;
+			}
+				.product-index h2 a{
+			     color:#e1223c;
+				}
+				.product-index h2 a:hover{
+					text-decoration:none;
+				}
+				.product-index p{
+					font:bold 12px Century Gothic;
+                    margin:0 0 10px 0;
+				}
+					.product-index p span{
+						font:30px Candara;
+					}
+    
+    
+    /*ліва колонка*/
+    #left-bar{
+			float:left; 
+			width:260px;
+			margin-left:-100%;
+		}
+        
+		
+		.left-bar-cont{
+                background:#fff;
+			}
+			.left-bar-cont h2{
+					color:#fff;
+                    font:normal 22px Century Gothic;
+					background: #e1223c;
+				}
+				.nav-new{
+					background:url(images/new-nav.jpg) left center no-repeat;
+                    border-bottom:1px solid #e1e1e1;
+                    border-right:1px solid #e1e1e1;
+                    border-left:1px solid #e1e1e1;
+				}
+				.nav-lider{
+					background:url(images/lider-nav.jpg) left center no-repeat;
+                    border-bottom:1px solid #e1e1e1;
+                    border-right:1px solid #e1e1e1;
+                    border-left:1px solid #e1e1e1;
+				}
+				.nav-sale{
+					background:url(images/sale-nav.jpg) left center no-repeat;
+                    border-bottom:1px solid #a1a1a1;
+                    border-right:1px solid #e1e1e1;
+                    border-left:1px solid #e1e1e1;
+				}
+				.nav-new, .nav-lider, .nav-sale{
+					padding:10px 0 10px 55px;
+				}
+				.nav-new a, .nav-lider a, .nav-sale a{
+						color:#423c37;
+                        font:15px Century Gothic;
+                        text-decoration:none;
+					}	
+					.nav-new a:hover, .nav-lider a:hover, .nav-sale a:hover{
+						text-decoration: underline;
+					}
+					.left-bar-cont h2 span{
+						display:block;
+                        background:#e1223c;
+                        padding:5px 0 5px 10px;
+					}
+					.left-bar-cont h4{
+					color:#fff;
+                    font:18px Century Gothic;
+					background:#e1223c;
+					
+				}
+				.left-bar-cont h4 span{
+						display:block;
+                        padding:5px 0 5px 15px;
+					}
+					.nav-catalog{
+					padding:10px 10px 20px 35px;
+                    list-style:url(images/disc.jpg);
+                    border-bottom:1px solid #e1e1e1;
+                    border-left: 1px solid #e1e1e1;
+                    border-right: 1px solid #e1e1e1;
+                    
+				}
+					.nav-catalog ul{
+						padding:5px 0 0 20px;
+                        list-style:none;
+					}
+					.nav-catalog li{
+						margin:0 0 5px 0;
+					}
+					.nav-catalog li a{
+						font:14px Century Gothic;
+                        color:#423c37;
+                        text-decoration:none;
+					}
+					.nav-catalog li a:hover{
+						font:14px Century Gothic;
+                        color:#e1223c;
+                        text-decoration:none;
+					}
+					.nav-catalog ul li{
+							margin:0;
+						}
+						.bar-contact{
+				border-bottom:1px solid #e1e1e1;
+                border-left:1px solid #e1e1e1;
+                border-right:1px solid #e1e1e1;
+                padding:15px 0 20px 25px;
+                color:#423c37;
+                font-family:Century Gothic;
+			}
+			.bar-contact h3{
+					font-size:19px;
+                    font-weight:normal;
+				}
+				.bar-contact p{
+					font-size:15px;
+                    margin:10px 0 0 0;
+				}
+					.bar-contact p span{
+						font-size:19px;
+                        font-weight: bold;
+					}
+					.news{
+				border-bottom:1px solid #e1e1e1;
+                border-left:1px solid #e1e1e1;
+                border-right:1px solid #e1e1e1;
+                padding:15px 0 20px 25px;
+                font-family:Century Gothic;
+			}
+			.news h3{
+				font-size:18px;
+                font-weight:normal;
+			}
+			.news p{
+				margin:15px 0 0 0;
+			}
+			.news p span{
+				color:#423c37;
+                font-size:10px;
+                background:#e9e9e9;
+                padding:1px 7px;
+			}
+			.news a{
+				display:block;
+                font-size:12px;
+                color:#423c37;
+                margin:5px 0 0 0;
+			}
+			.news a:hover{
+				text-decoration:none;
+			}
+			.news-arh{
+				border: 1px solid #fff;
+				padding: 10px 15px;
+				text-align: center; width: 105px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				-webkit-box-shadow: #eeeeee 0px 0px 7px;
+				-moz-box-shadow: #eeeeee 0px 0px 7px;
+				box-shadow: #eeeeee 0px 0px 7px;
+				background: #eaeaea;
+				behavior: url(/pie/PIE.htc);
+				margin:15px 0 0 0 !important;
+			}
+			.info{
+				border-bottom:1px solid #e1e1e1;
+                border-left:1px solid #e1e1e1;
+                border-right:1px solid #e1e1e1;
+                padding:15px 0 20px 25px;
+                font-family:Century Gothic;
+                color:#423c37;
+			}
+			.info:last-child{
+				border-bottom:none;
+			}
+				.info h3{
+					font-size:18px;
+                    font-weight:normal;
+                    color:#000;
+				}
+				.info p{
+					margin:4px 0 0 0;
+				}
+				.info a{
+					font-size:12px;
+                    color:#423c37;
+				}
+				.info a:hover{
+					text-decoration:none;
+				}
+				
+				
+/* права колонка */
+
+#right-bar{
+			float:left;
+			width:225px;
+			margin-left:-225px;
+		}
+			.right-bar-cont h2{
+					color:#fff;
+                    font:normal 18px Century Gothic;
+					background:#e1223c;				
+				}
+					.right-bar-cont h2 span{
+						display:block;
+                        padding:5px 0 5px 10px;
+				}
+					.enter div, .basket div {
+						background:#fff;
+                        padding:15px;
+                        border-left:1px solid #e1e1e1;
+                        border-right:1px solid #e1e1e1;
+					}
+						.enter div img, .basket div img {
+							display:block;
+                            margin:0 auto;
+						}
+						.share-search div{
+					font-size:12px;
+                    font-family:Century Gothic;
+                    padding:10px 10px 25px 10px;
+                    background:#fff;
+                     border-left:1px solid #e1e1e1;
+                     border-right:1px solid #e1e1e1;
+                     border-bottom:1px solid #e1e1e1;
+				}
+					.share-search div p{
+						font-size:14px;
+                        margin:0 0 8px 0;
+                        color:#423c37;
+                        
+					}
+					.share-search div select{
+						width:200px;
+                        font-size:14px;
+                        padding:5px;
+                        font-family:Century Gothic;
+                        color:#423c37;
+					}
+					.podbor-price{
+						width:60px;
+                        text-align:right;
+                        font:12px Century Gothic;
+                        color:#423c37;
+                        padding:3px;
+                        border:1px solid #959b9e;
+					}
+					.podbor{
+						display:block;
+                        width:170px;
+                        margin:20px auto 0 auto;
+					}
+                   
+                    
+  /*footer*/
+
+    
+  .footer{
+	float: left;
+    /*background: url(images/do_footer.jpg) repeat-x;*/
+    font:12px Century Gothic;
+    color:#555555;
+    height:48px;
+}
+
+.menu_footer{
+		background:#fff;
+        display:table-row;
+        list-style:none;
+	}
+.menu_footer li{
+			display:table-cell;
+            width:auto;
+            text-align:center;
+            height:50px; 
+}
+.menu_footer li:hover{
+			background:#e22339;
+		}
+.menu_footer li a:hover{
+            color:#fff;
+		}
+  
+.menu_footer li a{
+			display:block;
+            width:1000px;
+            height:50px;
+            vertical-align:middle;
+            display:table-cell;
+            font:18px Century Gothic;
+            color:#434342;
+            text-decoration:none;
+		}
+        
+		/*		каталог деталі		*/
+.catalog-detail{
+	overflow:hidden;
+    font:12px Century Gothic;
+    color:#000;
+    margin:0 25px;
+}
+.catalog-detail h1{
+		font-size:24px;
+        color:#e1223c;
+        font-weight:normal;
+        margin:0 0 15px 0;
+	}
+    
+
+
+	/*		Галерея		*/
+
+#slideshow {list-style:none; color:#fff}
+#slideshow span {display:none}
+#wrapper {width:400px; margin-right:30px; display:none; overflow:hidden; float:left;}
+#wrapper * {margin:0; padding:0}
+#fullsize {position:relative; width:400px; height:390px; padding:2px; border:2px solid #fff;}
+#information {position:absolute; bottom:0; width:400px; height:0; background:#000; color:#fff; overflow:hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
+#information h3 {padding:0; font-size:0;}
+#information p {padding:0}
+#image {width:200px}
+#image img {position:absolute; z-index:25; width:auto}
+.imgnav {position:absolute; width:25%; height:306px; cursor:pointer; z-index:150}
+#imgprev {left:0; background:url(images/left.gif) left center no-repeat}
+#imgnext {right:0; background:url(images/right.gif) right center no-repeat}
+#imglink {position:absolute; height:306px; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
+.linkhover {background:url(images/link.gif) center center no-repeat}
+#thumbnails {margin-top:15px}
+#slideleft {float:left; width:20px; height:50px; background:url(images/scroll-left.gif) center center no-repeat;}
+#slideleft:hover {background:url(images/scroll-lefth.gif) center center no-repeat;}
+#slideright {float:right; width:20px; height:50px; background:url(images/scroll-right.gif) center center no-repeat;}
+#slideright:hover  {background:url(images/scroll-righth.gif) center center no-repeat;}
+#slidearea {float:left; position:relative; width:355px; margin-left:5px; height:81px; overflow:hidden}
+#slider {position:absolute; left:0; height:81px}
+#slider img {cursor:pointer; border:1px solid #666; padding:2px}
+
+
+.icon-detail{
+	margin:0 0 10px 210px;
+}
+.short-opais{
+	margin:0 0 40px 218px;
+    font-family:Century Gothic;
+}
+	.short-opais h3{
+		font-size:18px;
+        font-weight:normal;
+	}
+	.short-opais p{
+		font-size:14px;
+        margin:0 0 20px 0px;
+	}
+	.price-detail{
+		font-size:18px!important;
+	}
+		.price-detail span{
+			font-size:30px;
+            font-family:Candara;
+		}
+
+.long-opais{
+	font-family:Century Gothic;
+    float:left;
+    margin-top: 25px;
+}
+	.long-opais h3{
+		font-size:18px;
+        font-weight:normal;
+	}
+	.long-opais p{
+		font-size:12px;
+        margin:0 0 20px 0;
+	}
+	
+.tech-harakt{
+    float:left;
+	margin:40px 0 0 0;
+    font-family:Century Gothic;
+}
+	.tech-harakt h3{
+		font-size:24px;
+        font-weight:normal;
+        margin:0 0 20px 0;
+	}
+	.tech-harakt h4{
+		font-size:12px;
+        line-height:2;
+	}
+	.tech-harakt ul{
+		margin:0 0 20px 0;
+	}
+		.tech-harakt ul li{
+			font-size:12px;
+            line-height:1.5;
+		}
+		
+   
+/*лінійний вмгляд*/
+
+.vid-sort{
+	font:12px Century Gothic;
+    color:#888;
+    background:#fafbfb;
+    border-bottom:1px solid #dee7ec;
+    margin:0 15px 30px 15px;
+    padding:10px 0 10px 2px;
+    position: relative;
+}
+	.vid-sort img{
+		margin:0 2px;
+        position:relative;
+        top:3px;
+	}
+	.vid-sort a{
+		color:#888;
+	}
+	.vid-sort a:hover{
+		text-decoration:none;
+	}
+	a.sort-top{
+		background:url(images/sort-top.gif) right 6px no-repeat;
+        padding: 0 12px;
+        color: #e1223c;
+        cursor: pointer;
+	}
+	a.sort-bot{
+		background:url(images/sort-bot.gif) left 6px no-repeat;
+        padding:0 0 0 12px;
+	}
+	a.sort-top-act{
+		background:url(images/sort-top-act.gif) left 6px no-repeat;
+        padding:0 0 0 12px;
+        color:#434342;
+	}
+	a.sort-bot-act{
+		background:url(images/sort-bot-act.gif) left 6px no-repeat;
+        padding:0 0 0 12px;
+        color:#434342;
+	}
+    .sort-wrap{
+    border: 1px solid #e1223c;
+    padding: 5px;
+    z-index: 45;
+    position: absolute;
+    left: 205px;
+    top: 35px;
+    background-color: #FAFBFB;
+    visibility: hidden;
+}
+.sort-wrap a{
+    margin-bottom:  5px;
+    display: block;
+}
+    
+    .product-line{
+	overflow:hidden;
+    margin:0 20px 55px 15px;
+}
+	.product-line-img{
+		float:left;
+        margin: 0 20px;
+	}
+	.product-line-price{
+		float:right;
+        margin-left: 25px;
+        padding-top: 3px;
+	}
+		.product-line-price p{
+			font:12px Century Gothic;
+            margin:0 0 5px 0;
+		}
+			.product-line-price p span{
+				font:18px Candara;
+                line-height:0;
+			}
+			.product-line-price p a{
+				color:#434342;
+			}
+			.product-line-price p a:hover{
+				text-decoration:none;
+			}
+			.product-line-price div{
+			margin:5px 0 0 0;
+            height:26px;
+		}
+			.product-line-price div img{
+				margin:0 3px;
+			}
+	.product-line-opis{
+		font:12px Century Gothic;
+        padding:0 170px 0 150px;
+	}
+		.product-line-opis h2{
+			font:12px Century Gothic;
+            color:#e2233a;
+            margin:0 0 7px 0;
+            line-height:0.8;
+		}
+			.product-line-opis h2 a{
+				color:#e2233a;
+			}
+			.product-line-opis h2 a:hover{
+				text-decoration:none;
+			}
+			.pager{
+		background:#fafbfb;
+        border-top:1px solid #ebf1f4;
+        font:15px Century Gothic;
+		color:#e2233a;
+        padding:10px;
+        margin:15px;
+	}
+		.pager a{
+			color:#888888;
+            font-size:14px;
+            padding:0 3px;
+            
+		}
+		.pager a:hover{
+			text-decoration:none;
+            color:#e2233a;
+		}
+		.pager img{
+			position:relative;
+            top:5px;
+            
+		}
+        
+        
+/*каталог табличний*/
+
+.product-table{
+    background: #fff;
+	float:left;
+    width:33%;
+    text-align:center;
+    margin:0 0 60px 0;
+}
+	.product-table h2{
+		font:12px Century Gothic;
+        color:#e2233a;
+        margin:0 0 10px 0;
+	}
+		.product-table h2 a{
+			color:#e2233a; 
+		}
+		.product-table h2 a:hover{
+			text-decoration:none;
+		}
+	.product-table p{
+		font:12px Century Gothic;
+        margin:0 0 10px;
+	}
+		.product-table p span{
+			font:24px Candara;
+		}
+		.cat-table-more{
+			margin:5px 0 0 0!important;
+		}
+			.cat-table-more a{
+				color:#888;
+			}
+			.cat-table-more a:hover{
+				text-decoration:none;
+			}
+			.product-table-img-main{
+		position:relative;
+	}
+		.product-table-img{
+			display:table-cell;
+            height:140px;
+            position:relative;
+            vertical-align:middle;
+            width:1%;
+		}
+			.product-table-img div{
+				position:absolute;
+                top:0;
+                right:0;
+                margin:0 20px 0 0;
+			}
+				.product-table-img div img{
+					display:block;
+				}
+						
+/*текстовий*/
+
+.content-txt{
+	overflow:hidden;
+    font:12px Century Gothic;
+    color:#434342;
+    margin:0 25px;
+}
+	.content-txt h1{
+		font-size:24px;
+        color:#e2233a;
+        font-weight:normal;
+        margin:5px 0 20px 0;
+	}
+	.content-txt h2{
+		font-size:20px;
+        color:#000;
+        font-weight:normal;
+        margin:20px 0 15px 0;
+	}
+	.content-txt h3{
+		font-size:18px;
+        color:#000;
+        font-weight:normal;
+        margin:20px 0 15px 0;
+	}
+	.content-txt h4{
+		font-size:14px;
+        color:#000;
+        font-weight:bold;
+        margin:20px 0 15px 0;
+	}
+	.content-txt h5{
+		font-size:12px;
+        color:#000;
+        font-weight:bold;
+        margin:20px 0 15px 0;
+	}
+	.content-txt h6{
+		font-size:10px;
+        color:#000;
+        font-weight:bold;
+        margin:20px 0 15px 0;
+	}
+	.content-txt p{
+		margin:0 0 10px 0;
+	}
+	.content-txt a{
+		color:#e1223b;
+	}
+    .pager a{
+    	color:#434342;    
+    }
+	.content-txt a:hover{
+		text-decoration:none;
+	}
+	.content-txt ul{
+		list-style:disc;
+        margin:20px 0 15px 30px;
+	}
+		.content-txt ul li{
+			line-height:1.7;
+		}
+		
+/*заказ*/		
+#content-zakaz{
+	width:98%;
+    margin:0 auto;
+}
+	#content-zakaz h2{
+		text-align:center;
+        font:normal 24px Century Gothic;
+        margin:20px 0 10px 0;
+	}
+	.zakaz-maiin-table{
+		width:100%;
+        margin:0 0 30px 0;
+	}
+	.zakaz-maiin-table td{
+		padding:10px;
+	}
+	.z_top{
+		background:#fafbfb;
+        border-bottom:1px solid #dee7ec;
+        font:bold 12px Century Gothic;
+        color:#434342;
+	}
+	.z_bot{
+		background:#fafbfb;
+        border-top:1px solid #dee7ec;
+        font:bold 12px Century Gothic;
+        color:#434342;
+	}
+	.z_name{
+		}	
+		.z_name img{
+			float:left;
+            margin:0 10px 0 0;
+			}	
+		.z_name a{
+			font:12px Century Gothic;
+            color:#e2233a;
+			}				
+		.z_name a:hover{
+			text-decoration:none;
+			}
+		.z_kol, .z_price, .z_del{
+			text-align:center;
+			}
+		.z_kol{
+			width:75px;
+			}
+		.z_price{
+			width:80px;
+            font:24px Candara;
+			}
+		.z_del{
+			width:65px;
+			}		
+		.kolvo{
+			width:48px;
+            height:22px;
+            font:16px Century Gothic;
+            color:#000;
+            background:#fafafa;
+            border:1px solid #b5b5b5;
+            text-align:center;	
+			}
+	
+	.sposob-dostavki p{
+		font-size:12px;
+        font-family:Century Gothic;
+        margin-top:7px;
+		}
+	.sposob-dostavki{
+		margin:0 0 30px 0;
+		}	
+	#content-zakaz h4{
+		 font:bold 14px Century Gothic;
+	}	
+	#content-zakaz h3{
+		 font:normal 18px Century Gothic;
+	}
+	
+	.zakaz-data{
+		width:100%;
+        background:#fafafa;
+        margin:10px 0 40px 0;
+	}
+		.zakaz-data td{
+			vertical-align:middle;
+            padding:10px 10px 0 10px;
+		}
+	.zakaz-txt{
+		font:14px Century Gothic;
+        color:#828281;
+		}
+	.zakaz-prim{
+		font:12px Century Gothic;
+        color:#c0c0c0;
+        font-style:italic;
+		}	
+	.zakaz-inpt{
+		}	
+		.zakaz-inpt input{
+			width:330px;
+            height:28px;
+            border:1px solid #ccc;
+			}
+		.zakaz-txtarea{	
+			padding:10px 10px 20px 10px !important;
+			}		
+		.zakaz-txtarea textarea{
+			width:330px;
+            height:100px;
+            border:1px solid #ccc;
+			}						
+					
+					
+					
+/*контакти*/
+
+.dany-txt {
+    border-top: 1px solid #d7d7d7;
+}
+.time-work{
+    text-align: center;
+    border-bottom: 1px dashed #d7d7d7;
+    padding: 10px 0;
+}
+/*.time-work p :first-child{
+    color: #e1223b ;
+    font:18px Century Gothic;
+}*/
+ .color{
+    color: #e1223b !important;
+    font:18px Century Gothic;
+}
+.time-work p{
+    color: #000;
+    font:18px Century Gothic;  
+}   
+.time-work span{
+    color: #555;
+    font:18px Century Gothic;
+}
+
+.telephone{
+    text-align: center;
+    border-bottom: 1px dashed #d7d7d7;
+    padding: 10px 0;
+}
+.telephone span{
+    color: #e1223b;
+    font:18px Century Gothic;
+}
+.telephone p{
+    color: #555;
+    font:18px Century Gothic;
+}
+.adres{
+    text-align: center;
+    padding: 10px 0;
+}
+.adres span{
+    color: #e1223b;
+    font:18px Century Gothic;
+}
+.adres p{
+    color: #555;
+    font:18px Century Gothic;
+}
+   
+/* Авторизация + Регистрация */
+p.link a{
+    font-size: 11px;
+}	
+.error{
+    margin-top:5px;
+    border:1px solid #765858;
+    background:#ffeded !important;
+    color:#7f5354 !important;
+    padding:3px;
+}
+.success{
+    margin-top:5px;
+    border:1px solid #adc092;
+    background:#f0faf1 !important;
+    color:#58715e !important;
+    padding:3px;
+}
+.error ul{
+    list-style: disc outside none;
+    margin: 20px 0 15px 30px;
+}
+/* Авторизация + Регистрация */
+ 
+/* Постраничная навигация */
+.pagination{
+    text-align:center;
+    margin: 10px;
+}
+a.nav_active{
+    border: 1px solid #ccc;
+    background-color: #e1223b;
+    color: #fff;
+    padding: 5px 7px;
+    margin: 0 2px;
+}
+a.nav_link{
+    padding: 5px 7px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    margin: 0 5px;
+    color: #777;
+}
+a.nav_link:hover{
+    background-color: #e1223b;
+    color: #fff;
+}
+/* Постраничная навигация */ 
+
+/* Галерея продукта */
+.item_gallery{
+   /*padding: 10px 0 20px;*/
+   margin-bottom: 25px;
+}
+.item_img{
+   position: relative;
+   text-align: center;
+   height: 350px;
+   background: url(images/ajax-loader.gif) no-repeat center 49%;
+}
+
+.item_img img{
+   max-width: 650px;
+}
+.item_thumbs{
+   margin-top: 50px;
+}
+.item_thumbs a{
+   margin: 0 10px 10px 0;
+}
+.item_thumbs img{
+  /* width: 45px;*/
+   padding: 4px;
+   border: 2px solid #B2B2B2;
+}
+.item_thumbs a:hover img,
+.item_thumbs a.active img{
+   border: 2px solid #666;
+}
+/* Галерея продукта */ 
