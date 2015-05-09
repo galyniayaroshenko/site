@@ -53,7 +53,7 @@ define('PERPAGE', 9);
 // папка шаблонів адміністивної частини
 define('ADMIN_TEMPLATE', 'templates/');
 
-mysql_connect(HOST, USER, PASS) or die('No connect to Server'); //підключаємся до серверу БД
+mysql_connect(HOST, USER, PASS) or die('No connect to Server'); //підключаємся до серверу БД ��
 mysql_select_db(DB) or die('No connect to DB');//вибираємо для роботи БД
 mysql_query("SET NAMES 'UTF8'") or die('Cant set charset');// задаємо кодіровку для зєднання
 ?>
