@@ -2,7 +2,7 @@
 
 /* ===Фильтрация входящих данных из админки=== */
 function clear_admin($var){
-    $var = mysqli_real_escape_string($var);
+    $var = mysql_real_escape_string($var);
     return $var;
 }
 /* ===Фильтрация входящих данных из админки=== */
@@ -79,11 +79,11 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 /* ====Каталог - получение массива=== */
 function catalog(){
     $query = "SELECT * FROM brands ORDER BY parent_id, brand_name";
-    $res = mysqli_query($query) or die(mysqli_query());
+    $res = mysql_query($query) or die(mysql_query());
     
     //массив категорий
     $cat = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         if(!$row['parent_id']){
             $cat[$row['brand_id']][] = $row['brand_name'];
         }else{
@@ -97,10 +97,10 @@ function catalog(){
 /* ===Страницы=== */
 function pages(){
     $query = "SELECT page_id, title, position FROM pages ORDER BY position";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $pages = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $pages[] = $row;
     }
     return $pages;
@@ -110,10 +110,10 @@ function pages(){
 /* ===Отдельная страница=== */
 function get_page($page_id){
     $query = "SELECT * FROM pages WHERE page_id = $page_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $page = array();
-    $page = mysqli_fetch_assoc($res);
+    $page = mysql_fetch_assoc($res);
     
     return $page;
 }
@@ -144,9 +144,9 @@ function edit_page($page_id){
                     position = $position,
                     text = '$text'
                         WHERE page_id = $page_id";
-        $res = mysqli_query($query) or die(mysqli_error());
+        $res = mysql_query($query) or die(mysql_error());
         
-        if(mysqli_affected_rows() > 0){
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Страница обновлена!</div>";
             return true;
         }else{
@@ -181,9 +181,9 @@ function add_page(){
         
         $query = "INSERT INTO pages (title, keywords, description, position, text)
                     VALUES ('$title', '$keywords', '$description', $position, '$text')";
-        $res = mysqli_query($query);
+        $res = mysql_query($query);
         
-        if(mysqli_affected_rows() > 0){
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Сторінка додана!</div>";
             return true;
         }else{
@@ -197,9 +197,9 @@ function add_page(){
 /* ===Удаление страницы=== */
 function del_page($page_id){
     $query = "DELETE FROM pages WHERE page_id = $page_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
-    if(mysqli_affected_rows() > 0){
+    if(mysql_affected_rows() > 0){
         $_SESSION['answer'] = "<div class='success'>Страница удалена.</div>";
         return true;
     }else{
@@ -212,9 +212,9 @@ function del_page($page_id){
 /* ===Количество новостей=== */
 function count_news(){
     $query = "SELECT COUNT(news_id) FROM news";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
-    $count_news = mysqli_fetch_row($res);
+    $count_news = mysql_fetch_row($res);
     return $count_news[0];
 }
 /* ===Количество новостей=== */
@@ -222,10 +222,10 @@ function count_news(){
 /* ===Архив новостей=== */
 function get_all_news($start_pos, $perpage){
     $query = "SELECT news_id, title, anons, data FROM news ORDER BY data DESC LIMIT $start_pos, $perpage";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $all_news = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $all_news[] = $row;
     }
     return $all_news;
@@ -258,9 +258,9 @@ function add_news(){
         
         $query = "INSERT INTO news (title, keywords, description, data, anons, text)
                     VALUES ('$title', '$keywords', '$description', '$data', '$anons', '$text')";
-        $res = mysqli_query($query);
+        $res = mysql_query($query);
         
-        if(mysqli_affected_rows() > 0){
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Новина додана!</div>";
             return true;
         }else{
@@ -274,10 +274,10 @@ function add_news(){
 /* ===Отдельная новость=== */
 function get_news($news_id){
     $query = "SELECT * FROM news WHERE news_id = $news_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $news = array();
-    $news = mysqli_fetch_assoc($res);
+    $news = mysql_fetch_assoc($res);
     
     return $news;
 }
@@ -312,9 +312,9 @@ function edit_news($news_id){
                     anons = '$anons',
                     text = '$text'
                         WHERE news_id = $news_id";
-        $res = mysqli_query($query) or die(mysqli_error());
+        $res = mysql_query($query) or die(mysql_error());
         
-        if(mysqli_affected_rows() > 0){
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Новина оновлена!</div>";
             return true;
         }else{
@@ -328,9 +328,9 @@ function edit_news($news_id){
 /* ===Удаление новости=== */
 function del_news($news_id){
     $query = "DELETE FROM news WHERE news_id = $news_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
-    if(mysqli_affected_rows() > 0){
+    if(mysql_affected_rows() > 0){
         $_SESSION['answer'] = "<div class='success'>Hовина видалена.</div>";
         return true;
     }else{
@@ -346,11 +346,11 @@ function informer(){
                 RIGHT JOIN informers ON
                     links.parent_informer = informers.informer_id
                         ORDER BY informer_position, links_position";
-    $res = mysqli_query($query) or die(mysqli_query());
+    $res = mysql_query($query) or die(mysql_query());
     
     $informers = array();
     $name = ''; // флаг имени информера
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         if($row['informer_name'] != $name){ // если такого информера в массиве еще нет
             $informers[$row['informer_id']][] = $row['informer_name']; // добавляем информер в массив
             $informers[$row['informer_id']]['position'] = $row['informer_position'];
@@ -368,10 +368,10 @@ function informer(){
 /* ===Массив информеров для списка=== */
 function get_informers(){
     $query = "SELECT * FROM informers";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $informers = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $informers[] = $row; 
     }
     
@@ -404,8 +404,8 @@ function add_link(){
         
         $query = "INSERT INTO links (link_name, keywords, description, parent_informer, links_position, text)
                     VALUES ('$link_name', '$keywords', '$description', $parent_informer, $links_position, '$text')";
-        $res = mysqli_query($query) or die(mysqli_error());
-        if(mysqli_affected_rows() > 0){
+        $res = mysql_query($query) or die(mysql_error());
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Сторінка інформера добавлена!</div>";
             return true;
         }else{
@@ -419,10 +419,10 @@ function add_link(){
 /* ===Получение данных страницы информера=== */
 function get_link($link_id){
     $query = "SELECT * FROM links WHERE link_id = $link_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $link = array();
-    $link = mysqli_fetch_assoc($res);
+    $link = mysql_fetch_assoc($res);
     return $link;
 }
 /* ===Получение данных страницы информера=== */
@@ -454,8 +454,8 @@ function edit_link($link_id){
                     links_position = $links_position,
                     text = '$text'
                         WHERE link_id = $link_id";
-        $res = mysqli_query($query) or die(mysqli_error());
-        if(mysqli_affected_rows() > 0){
+        $res = mysql_query($query) or die(mysql_error());
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Сторінка інформера оновлена!</div>";
             return true;
         }else{
@@ -469,8 +469,8 @@ function edit_link($link_id){
 /* ===Удаление страницы информера=== */
 function del_link($link_id){
     $query = "DELETE FROM links WHERE link_id = $link_id";
-    $res = mysqli_query($query);
-    if(mysqli_affected_rows() > 0){
+    $res = mysql_query($query);
+    if(mysql_affected_rows() > 0){
         $_SESSION['answer'] = "<div class='success'>Сторінка інформера видалена!</div>";
     }else{
         $_SESSION['answer'] = "<div class='error'>Помилка!</div>";
@@ -489,8 +489,8 @@ function add_informer(){
     }else{
         $query = "INSERT INTO informers (informer_name, informer_position)
                     VALUES ('$informer_name', $informer_position)";
-        $res = mysqli_query($query);
-        if(mysqli_affected_rows() > 0){
+        $res = mysql_query($query);
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Інфомермер добавлений!</div>";
             return true;
         }else{
@@ -504,12 +504,12 @@ function add_informer(){
 /* ===Удаление информера=== */
 function del_informer($informer_id){
     // удаляем страницы информера
-    mysqli_query("DELETE FROM links WHERE parent_informer = $informer_id");
+    mysql_query("DELETE FROM links WHERE parent_informer = $informer_id");
     
     // удаляем информер
     $query = "DELETE FROM informers WHERE informer_id = $informer_id";
-    $res = mysqli_query($query);
-    if(mysqli_affected_rows() > 0){
+    $res = mysql_query($query);
+    if(mysql_affected_rows() > 0){
         $_SESSION['answer'] = "<div class='success'>Інформер видалений!</div>";
     }else{
         $_SESSION['answer'] = "<div class='error'>Помилка!</div>";
@@ -520,10 +520,10 @@ function del_informer($informer_id){
 /* ===Получение данных информера=== */
 function get_informer($informer_id){
     $query = "SELECT * FROM informers WHERE informer_id = $informer_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $informers = array();
-    $informers = mysqli_fetch_assoc($res);
+    $informers = mysql_fetch_assoc($res);
     return $informers;
 }
 /* ===Получение данных информера=== */
@@ -541,8 +541,8 @@ function edit_informer($informer_id){
                     informer_name = '$informer_name',
                     informer_position = $informer_position
                         WHERE informer_id = $informer_id";
-        $res = mysqli_query($query);
-        if(mysqli_affected_rows() > 0){
+        $res = mysql_query($query);
+        if(mysql_affected_rows() > 0){
             $_SESSION['answer'] = "<div class='success'>Інформер оновлений!</div>";
             return true;
         }else{
@@ -564,15 +564,15 @@ function add_brand(){
     }else{
         // проверяем нет ли такой категории на одном уровне(в одному і тому самому батьівського)
         $query = "SELECT brand_id FROM brands WHERE brand_name = '$brand_name' AND parent_id = $parent_id";
-        $res = mysqli_query($query);
-        if(mysqli_num_rows($res) > 0){
+        $res = mysql_query($query);
+        if(mysql_num_rows($res) > 0){
             $_SESSION['add_brand']['res'] = "<div class='error'>Категорія з такою назвою вже є</div>";
             return false;
         }else{
             $query = "INSERT INTO brands (brand_name, parent_id)
                         VALUES ('$brand_name', $parent_id)";
-            $res = mysqli_query($query);
-            if(mysqli_affected_rows() > 0){
+            $res = mysql_query($query);
+            if(mysql_affected_rows() > 0){
                 $_SESSION['answer'] = "<div class='success'>Категорія додана!</div>";
                 return true;
             }else{
@@ -595,8 +595,8 @@ function edit_brand($brand_id){
     }else{
         // проверяем нет ли такой категории
         $query = "SELECT brand_id FROM brands WHERE brand_name = '$brand_name' AND parent_id = $parent_id";
-        $res = mysqli_query($query);
-        if(mysqli_num_rows($res) > 0){
+        $res = mysql_query($query);
+        if(mysql_num_rows($res) > 0){
             $_SESSION['edit_brand']['res'] = "<div class='error'>Категорія з такою назвою вже є</div>";
             return false;
         }else{
@@ -604,8 +604,8 @@ function edit_brand($brand_id){
                         brand_name = '$brand_name',
                         parent_id = $parent_id
                             WHERE brand_id = $brand_id";
-            $res = mysqli_query($query);
-            if(mysqli_affected_rows() > 0){
+            $res = mysql_query($query);
+            if(mysql_affected_rows() > 0){
                 $_SESSION['answer'] = "<div class='success'>Категорія обновлена!</div>";
                 return true;
             }else{
@@ -620,13 +620,13 @@ function edit_brand($brand_id){
 /* ===Удаление категории=== */
 function del_brand($brand_id){
     $query = "SELECT COUNT(*) FROM brands WHERE parent_id = $brand_id";
-    $res = mysqli_query($query);
-    $row = mysqli_fetch_row($res);
+    $res = mysql_query($query);
+    $row = mysql_fetch_row($res);
     if($row[0]){
         $_SESSION['answer'] = "<div class='error'>Категорія має підкатегорії! Видаліть спочатку їх або перемістіть в іншу категорію.</div>";
     }else{
-        mysqli_query("DELETE FROM goods WHERE goods_brandid = $brand_id");
-        mysqli_query("DELETE FROM brands WHERE brand_id = $brand_id");
+        mysql_query("DELETE FROM goods WHERE goods_brandid = $brand_id");
+        mysql_query("DELETE FROM brands WHERE brand_id = $brand_id");
         $_SESSION['answer'] = "<div class='error'>Категорія видалена.</div>";
     }
 }
@@ -645,9 +645,9 @@ function count_rows($category){
                 (
                     SELECT brand_id FROM brands WHERE parent_id = $category
                 ))";
-    $res = mysqli_query($query) or die(mysqli_error());
+    $res = mysql_query($query) or die(mysql_error());
     
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         if($row['count_rows']) $count_rows = $row['count_rows'];
     }
     return $count_rows;
@@ -662,9 +662,9 @@ function brand_name($category){
                 )
                 UNION
                     (SELECT brand_id, brand_name FROM brands WHERE brand_id = $category)";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     $brand_name = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $brand_name[] = $row;
     }
     return $brand_name;
@@ -684,10 +684,10 @@ function products($category, $start_pos, $perpage){
                     SELECT brand_id FROM brands WHERE parent_id = $category
                 )
                ) LIMIT $start_pos, $perpage";
-    $res = mysqli_query($query) or die(mysqli_error());
+    $res = mysql_query($query) or die(mysql_error());
     
     $products = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $products[] = $row;
     }
     
@@ -732,7 +732,7 @@ function edit_product($id){
                     price = $price,
                     visible = '$visible'
                         WHERE goods_id = $id";
-        $res = mysqli_query($query) or die(mysqli_error());
+        $res = mysql_query($query) or die(mysql_error());
         /* базовая картинка */
         $types = array("image/gif", "image/png", "image/jpeg", "image/pjpeg", "image/x-png"); // массив допустимых расширений
         if($_FILES['baseimg']['name']){
@@ -755,7 +755,7 @@ function edit_product($id){
                 if(@move_uploaded_file($baseimgTmpName, "../userfiles/product_img/tmp/$baseimgName")){
                     resize("../userfiles/product_img/tmp/$baseimgName", "../userfiles/product_img/baseimg/$baseimgName", 120, 185, $baseimgExt);
                     @unlink("../userfiles/product_img/tmp/$baseimgName");
-                    mysqli_query("UPDATE goods SET img = '$baseimgName' WHERE goods_id = $id");
+                    mysql_query("UPDATE goods SET img = '$baseimgName' WHERE goods_id = $id");
                 }else{
                     $_SESSION['answer'] .= "<div class='error'>Не вдалось переместити загружену картинку. Перевірте права доступу на папки в каталозі /userfiles/product_img/</div>";
                 }
@@ -800,10 +800,10 @@ function add_product(){
         
         $query = "INSERT INTO goods (name, keywords, description, goods_brandid, anons, content, hits, new, sale, price, data, visible)
                     VALUES ('$name', '$keywords', '$description', $goods_brandid, '$anons', '$content', '$hits', '$new', '$sale', $price, '$data', '$visible')";        
-        $res = mysqli_query($query) or die(mysqli_error());
+        $res = mysql_query($query) or die(mysql_error());
         
-        if(mysqli_affected_rows() > 0){
-            $id = mysqli_insert_id(); // ID сохраненного товара
+        if(mysql_affected_rows() > 0){
+            $id = mysql_insert_id(); // ID сохраненного товара
             $types = array("image/gif", "image/png", "image/jpeg", "image/pjpeg", "image/x-png"); // массив допустимых расширений
             /* базовая картинка */
             if($_FILES['baseimg']['name']){
@@ -826,7 +826,7 @@ function add_product(){
                     if(@move_uploaded_file($baseimgTmpName, "../userfiles/product_img/tmp/$baseimgName")){
                         resize("../userfiles/product_img/tmp/$baseimgName", "../userfiles/product_img/baseimg/$baseimgName", 120, 185, $baseimgExt);
                         @unlink("../userfiles/product_img/tmp/$baseimgName");
-                        mysqli_query("UPDATE goods SET img = '$baseimgName' WHERE goods_id = $id");
+                        mysql_query("UPDATE goods SET img = '$baseimgName' WHERE goods_id = $id");
                     }else{
                         $_SESSION['answer'] .= "<div class='success'>Не вдалося перемістити загружену картинку. Перевірте права на папки в каталозі /userfiles/product_img/</div>";
                     }
@@ -881,7 +881,7 @@ function add_product(){
                     }
                 }
                 if(isset($galleryfiles)){
-                    mysqli_query("UPDATE goods SET img_slide = '$galleryfiles' WHERE goods_id = $id");
+                    mysql_query("UPDATE goods SET img_slide = '$galleryfiles' WHERE goods_id = $id");
                 }
             }
             /* картинки галереи */
@@ -898,10 +898,10 @@ function add_product(){
 /* ===Получение данных товара=== */
 function get_product($goods_id){
     $query = "SELECT * FROM goods WHERE goods_id = $goods_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
     $product = array();
-    $product = mysqli_fetch_assoc($res);
+    $product = mysql_fetch_assoc($res);
     return $product;
 }
 /* ===Получение данных товара=== */
@@ -929,8 +929,8 @@ function upload_gallery_img($id){
     }
     
     $query = "SELECT img_slide FROM goods WHERE goods_id = $id";
-    $res = mysqli_query($query);
-    $row = mysqli_fetch_assoc($res);
+    $res = mysql_query($query);
+    $row = mysql_fetch_assoc($res);
     if($row['img_slide']){
         // если есть картинки в галерее
         $images = explode("|", $row['img_slide']);
@@ -948,7 +948,7 @@ function upload_gallery_img($id){
     $uploadfile = $uploaddir.$newimg;
     if(@move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
         resize($uploadfile, "../userfiles/product_img/thumbs/$newimg", 45, 45, $ext);
-        mysqli_query("UPDATE goods SET img_slide = '$images' WHERE goods_id = $id");
+        mysql_query("UPDATE goods SET img_slide = '$images' WHERE goods_id = $id");
         $res = array("answer" => "OK", "file" => $newimg);
         exit(json_encode($res));
     }
@@ -964,8 +964,8 @@ function del_img(){
     if(!$rel){
         // если удаляется базовая картинка
         $query = "UPDATE goods SET img = 'no_image.jpg' WHERE goods_id = $goods_id";
-        mysqli_query($query);
-        if(mysqli_affected_rows() > 0){
+        mysql_query($query);
+        if(mysql_affected_rows() > 0){
             return '<input type="file" name="baseimg" />';
         }else{
             return false;
@@ -973,8 +973,8 @@ function del_img(){
     }else{
         // если удаляется картинка галереи
         $query = "SELECT img_slide FROM goods WHERE goods_id = $goods_id";
-        $res = mysqli_query($query);
-        $row = mysqli_fetch_assoc($res);
+        $res = mysql_query($query);
+        $row = mysql_fetch_assoc($res);
         // получаем картинки в массив
         $images = explode("|", $row['img_slide']);
         foreach($images as $item){
@@ -987,8 +987,8 @@ function del_img(){
                 $galleryfiles .= "|$item";
             }
         }
-        mysqli_query("UPDATE goods SET img_slide = '$galleryfiles' WHERE goods_id = $goods_id");
-        if(mysqli_affected_rows() > 0){
+        mysql_query("UPDATE goods SET img_slide = '$galleryfiles' WHERE goods_id = $goods_id");
+        if(mysql_affected_rows() > 0){
             return true;
         }else{
             return false;
@@ -1000,8 +1000,8 @@ function del_img(){
 /* ===Получение количества необработанных заказов=== */
 function count_new_orders(){
     $query = "SELECT COUNT(*) AS count FROM orders WHERE status = '0'";
-    $res = mysqli_query($query);
-    $row = mysqli_fetch_assoc($res);
+    $res = mysql_query($query);
+    $row = mysql_fetch_assoc($res);
     return $row['count'];
 }
 /* ===Получение количества необработанных заказов=== */
@@ -1013,9 +1013,9 @@ function orders($status, $start_pos, $perpage){
                 LEFT JOIN customers
                     ON customers.customer_id = orders.customer_id".$status." 
                 LIMIT $start_pos, $perpage";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     $orders = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $orders[] = $row;
     }
     return $orders;
@@ -1025,9 +1025,9 @@ function orders($status, $start_pos, $perpage){
 /* ===Количество заказов=== */
 function count_orders($status){
     $query = "SELECT COUNT(order_id) FROM orders".$status;
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
-    $count_orders = mysqli_fetch_row($res);
+    $count_orders = mysql_fetch_row($res);
     return $count_orders[0];
 }
 /* ===Количество заказов=== */
@@ -1050,9 +1050,9 @@ function show_order($order_id){
             LEFT JOIN dostavka
                 ON dostavka.dostavka_id = orders.dostavka_id
                     WHERE zakaz_tovar.orders_id = $order_id";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     $show_order = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $show_order[] = $row;
     }
     return $show_order;
@@ -1062,8 +1062,8 @@ function show_order($order_id){
 /* ===Подтверждение заказа=== */
 function confirm_order($order_id){
     $query = "UPDATE orders SET status = '1' WHERE order_id = $order_id";
-    $res = mysqli_query($query);
-    if(mysqli_affected_rows() > 0){
+    $res = mysql_query($query);
+    if(mysql_affected_rows() > 0){
         return true;
     }else{
         return false;
@@ -1074,9 +1074,9 @@ function confirm_order($order_id){
 
 /* ===Удаление заказа=== */
 function del_order($order_id){
-    mysqli_query("DELETE FROM orders WHERE order_id = $order_id");
-    mysqli_query("DELETE FROM zakaz_tovar WHERE orders_id = $order_id");
-    if(mysqli_affected_rows() > 0){
+    mysql_query("DELETE FROM orders WHERE order_id = $order_id");
+    mysql_query("DELETE FROM zakaz_tovar WHERE orders_id = $order_id");
+    if(mysql_affected_rows() > 0){
         return true;
     }else{
         return false;
@@ -1087,9 +1087,9 @@ function del_order($order_id){
 /* ===Количество пользователей=== */
 function count_users(){
     $query = "SELECT COUNT(login) FROM customers";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     
-    $count_users = mysqli_fetch_row($res);
+    $count_users = mysql_fetch_row($res);
     return $count_users[0];
 }
 /* ===Количество пользователей=== */
@@ -1101,9 +1101,9 @@ function get_users($start_pos, $perpage){
                 LEFT JOIN roles
                     ON customers.id_role = roles.id_role
                 WHERE login IS NOT NULL LIMIT $start_pos, $perpage";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     $users = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $users[] = $row;
     }
     return $users;
@@ -1113,9 +1113,9 @@ function get_users($start_pos, $perpage){
 /* ===Получение списка ролей пользователей=== */
 function get_roles(){
     $query = "SELECT id_role, name_role FROM roles";
-    $res = mysqli_query($query);
+    $res = mysql_query($query);
     $roles = array();
-    while($row = mysqli_fetch_assoc($res)){
+    while($row = mysql_fetch_assoc($res)){
         $roles[] = $row;
     }
     return $roles;
@@ -1141,8 +1141,8 @@ function add_user(){
         // если все поля заполнены
         // проверяем нет ли такого юзера в БД
         $query = "SELECT customer_id FROM customers WHERE login = '" .clear($login). "' LIMIT 1";
-        $res = mysqli_query($query) or die(mysqli_error());
-        $row = mysqli_num_rows($res); // 1 - такой юзер есть, 0 - нет
+        $res = mysql_query($query) or die(mysql_error());
+        $row = mysql_num_rows($res); // 1 - такой юзер есть, 0 - нет
         if($row){
             // если такой логин уже есть
             $_SESSION['add_user']['res'] = "<div class='error'>Користувач з таким іменем вже зареєстрований на сайті. Введіть інший логін.</div>";
@@ -1159,8 +1159,8 @@ function add_user(){
             
             $query = "INSERT INTO customers (name, email, login, password, id_role)
                         VALUES ('$name', '$email', '$login', '$pass', $id_role)";
-            $res = mysqli_query($query) or die(mysqli_error());
-            if(mysqli_affected_rows() > 0){
+            $res = mysql_query($query) or die(mysql_error());
+            if(mysql_affected_rows() > 0){
                 // если запись добавлена
                 $_SESSION['answer'] = "<div class='success'>Користувач доданий.</div>";
                 return true;
@@ -1184,6 +1184,71 @@ function add_user(){
     }
 }
 /* ===Добавление пользователя=== */
+
+/* ===Получение данных пользователя=== */
+function get_user($user_id){
+    $query = "SELECT name, email, phone, address, login, id_role FROM customers WHERE customer_id = $user_id";
+    $res = mysql_query($query);
+    $user = array();
+    $user = mysql_fetch_assoc($res);
+    return $user;
+}
+/* ===Получение данных пользователя=== */
+
+/* ===Редактирование пользователя=== */
+function edit_user($user_id){
+    foreach($_POST as $key => $val){
+        if($key == "x" OR $key == "y") continue;
+        if($key == "password"){
+            $val = trim($val);
+            if(!empty($val)){
+                $val = md5($val);
+            }else{
+                continue;
+            }
+        }else{
+            $val = clear($val);
+        }
+        $data[$key] = $val;
+    }
+    
+    $fields = array_keys($data);
+    $values = array_values($data);
+    
+    for($i = 0; $i < count($fields); $i++){
+        $str .= "{$fields[$i]} = '{$values[$i]}',";
+    }
+    $str = substr($str, 0, -1);
+    $query = "UPDATE customers SET {$str} WHERE customer_id = $user_id";
+    $res = mysql_query($query);
+    if(mysql_affected_rows() > 0){
+        $_SESSION['answer'] = "<div class='success'>Дані оновлені</div>";
+        if($user_id == $_SESSION['auth']['user_id']){
+            $_SESSION['auth']['admin'] = htmlspecialchars($_POST['name']);
+        }
+        return true;
+    }else{
+        $_SESSION['edit_user']['res'] = "<div class='error'>Помилка</div>";
+        return false;
+    }
+}
+/* ===Редактирование пользователя=== */
+
+/* ===Удаление пользователя=== */
+function del_user($user_id){
+    if($_SESSION['auth']['user_id'] == $user_id){
+        $_SESSION['answer'] = "<div class='error'>Ви не можете видалити самі себе!</div>";
+    }else{
+        $query = "DELETE FROM customers WHERE customer_id = $user_id";
+        mysql_query($query);
+        if(mysql_affected_rows() > 0){
+            $_SESSION['answer'] = "<div class='success'>Користувач вилучений</div>";
+        }else{
+            $_SESSION['answer'] = "<div class='error'>Помилка видалення!</div>";
+        }
+    }
+}
+/* ===Удаление пользователя=== */
 
 
 ?>

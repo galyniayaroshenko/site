@@ -27,19 +27,19 @@ define('PRODUCTIMG', PATH.'userfiles/product_img/baseimg/');
 define('GALLERYIMG', PATH.'userfiles/product_img/');
 
 // сервер БД
-//define('HOST', 'localhost');
-define('HOST', 'mysql.hostinger.ru');
+define('HOST', 'localhost');
+//define('HOST', 'mysql.hostinger.ru');
 
 // пользователь
-//define('USER', 'ishop_user');
-define('USER', 'u241226796_user');
+define('USER', 'ishop_user');
+//define('USER', 'u241226796_user');
 
 // пароль
 define('PASS', '2824uz.1993ls.z');
 
 // БД
-//define('DB', 'ishop');
-define('DB', 'u241226796_ishop');
+define('DB', 'ishop');
+//define('DB', 'u241226796_ishop');
 
 // название магазина - title
 define('TITLE', 'Інтернет-магазин комп\'ютерної техніки');
@@ -53,7 +53,7 @@ define('PERPAGE', 9);
 // папка шаблонів адміністивної частини
 define('ADMIN_TEMPLATE', 'templates/');
 
-$conect = mysqli_connect(HOST, USER, PASS) or die('No connect to Server'); //підключаємся до серверу БД
-mysqli_select_db($conect, DB) or die('No connect to DB');//вибираємо для роботи БД
-mysqli_query($conect, "SET NAMES 'UTF8'") or die('Cant set charset');// задаємо кодіровку для зєднання
+mysql_connect(HOST, USER, PASS) or die('No connect to Server'); //підключаємся до серверу БД
+mysql_select_db(DB) or die('No connect to DB');//вибираємо для роботи БД
+mysql_query("SET NAMES 'UTF8'") or die('Cant set charset');// задаємо кодіровку для зєднання
 ?>

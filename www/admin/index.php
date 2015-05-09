@@ -340,6 +340,22 @@ switch($view){
         }
     break;
     
+    case('edit_user'):
+        $user_id = (int)$_GET['user_id'];
+        $get_user = get_user($user_id);
+        $roles = get_roles();
+        if($_POST){
+            if(edit_user($user_id)) redirect("?view=users");
+                else redirect();
+        }
+    break;
+    
+    case('del_user'):
+        $user_id = (int)$_GET['user_id'];
+        del_user($user_id);
+        redirect();
+    break;
+    
     default:
     // если из адресной строки получено имя несуществующего вида
     $view = 'pages';

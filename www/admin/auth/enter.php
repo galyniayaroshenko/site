@@ -10,11 +10,11 @@ if($_SESSION['auth']['admin']){
 }
 
 if($_POST){
-    $login = trim(mysqli_real_escape_string($_POST['user']));
+    $login = trim(mysql_real_escape_string($_POST['user']));
     $pass = trim($_POST['pass']);
     $query = "SELECT customer_id, name, password FROM customers WHERE login = '$login' AND id_role = 2 LIMIT 1";
-    $res = mysqli_query($query);
-    $row = mysqli_fetch_assoc($res);
+    $res = mysql_query($query);
+    $row = mysql_fetch_assoc($res);
     if($row['password'] == md5($pass)){
         $_SESSION['auth']['admin'] = htmlspecialchars($row['name']);
         $_SESSION['auth']['user_id'] = $row['customer_id'];

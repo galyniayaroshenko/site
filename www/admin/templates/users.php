@@ -26,7 +26,7 @@ if(isset($_SESSION['answer'])){
         <td class="name_page"><?=htmlspecialchars($item['login'])?></td>
         <td class="name_page"><?=htmlspecialchars($item['email'])?></td>
     	<td><?=htmlspecialchars($item['name_role'])?></td>
-    	<td><a href="#" class="edit">змінити</a>&nbsp; | &nbsp;<a href="#" class="del">видалити</a></td>
+    	<td><a href="?view=edit_user&amp;user_id=<?=$item['customer_id']?>" class="edit">змінити</a>&nbsp; | &nbsp;<a href="?view=del_user&amp;user_id=<?=$item['customer_id']?>" class="del">видалити</a></td>
     </tr>
 <?php $i++; ?>
 <?php endforeach; ?>
